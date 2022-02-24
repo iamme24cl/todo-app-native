@@ -6,6 +6,8 @@ const TodoItem = (props) => {
   const { todo, handleUpdateTodoStatus, handleTodoRemove } = props;
 
   const show = false;
+  console.log(todos)
+  
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => alert('clicked')}>
@@ -17,7 +19,7 @@ const TodoItem = (props) => {
           )}
       </TouchableOpacity>
       <View>
-        <Text style={styles.taskContainer}>random todo</Text>
+        <Text style={styles.taskContainer}></Text>
       </View>
       <View style={styles.closeBtnContainer}>
         <TouchableOpacity onPress={() => alert('clicked')}>
@@ -33,7 +35,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 15,
+    marginTop: 1,
     borderWidth: 1,
     borderRadius: 6,
     borderColor: '#ececec',
