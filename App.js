@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
-import { getTodos, createTodo, updateTodoStatus, removeTodo} from './utils/api';
+import { getTodos, createTodo, updateTodoStatus, removeTodo } from './utils/api';
 
 export default function App() {
   const [todos, setTodos] = useState([]);
@@ -36,6 +36,7 @@ export default function App() {
         handleTodoCreate={handleTodoCreate}
       />
       <TodoList
+        setTodos={setTodos}
         todos={todos}
         handleUpdateTodoStatus={handleUpdateTodoStatus}
         handleTodoRemove={handleTodoRemove}

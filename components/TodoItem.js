@@ -2,10 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
-const TodoItem = (props) => {
-  const { todo, handleUpdateTodoStatus, handleTodoRemove } = props;
-
-  const show = false;
+const TodoItem = ({ todo, handleUpdateTodoStatus, handleTodoRemove }) => {
   
   return (
     <View style={styles.container}>

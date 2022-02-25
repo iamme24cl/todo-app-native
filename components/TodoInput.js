@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React from 'react';
 import { KeyboardAvoidingView, StyleSheet, View, TextInput, TouchableOpacity, Platform} from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'; 
 
@@ -35,7 +35,7 @@ const TodoInput = ({ task, setTask, handleTodoCreate }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 20,
+    marginTop: 30,
     width: 320,
     flexDirection: 'row',
     alignItems: 'center',
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 8,
     right: 8
-},
+  },
 });
 
 export default TodoInput;
