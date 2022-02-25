@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { KeyboardAvoidingView, StyleSheet, View, TextInput, TouchableOpacity, Platform} from "react-native";
+import { KeyboardAvoidingView, StyleSheet, View, TextInput, TouchableOpacity, Platform, Keyboard} from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'; 
 
 const TodoInput = ({ task, setTask, handleTodoCreate }) => {
@@ -11,6 +11,7 @@ const TodoInput = ({ task, setTask, handleTodoCreate }) => {
     };
     handleTodoCreate(newTodo);
     setTask("");
+    Keyboard.dismiss();
   }
 
   return (
