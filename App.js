@@ -1,11 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import TodoInput from './components/TodoInput';
-import TodoList from './components/TodoList';
 import { getTodos, createTodo, updateTodoStatus, removeTodo } from './utils/api';
 
+import TodoInput from './components/TodoInput';
+import TodoList from './components/TodoList';
+
+import AppLoading from 'expo-app-loading';
+import {
+  useFonts,
+  BalsamiqSans_400Regular,
+} from '@expo-google-fonts/balsamiq-sans';
+
 export default function App() {
+  let [fontsLoaded] = useFonts({ BalsamiqSans_400Regular });
   const [todos, setTodos] = useState([]);
   const [isFetching, setIsFetching] = useState(true);
   const [task, setTask] = useState('');
@@ -26,7 +34,10 @@ export default function App() {
     removeTodo(id, todos, setTodos);
   }
 
- 
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>My Todo List</Text>
@@ -54,6 +65,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 28,
-    marginTop: 70
+    marginTop: 70,
+    fontFamily: 'BalsamiqSans_400Regular'
   }
 });

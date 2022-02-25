@@ -1,6 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import {
+  useFonts,
+  BalsamiqSans_400Regular,
+} from '@expo-google-fonts/balsamiq-sans';
 
 const TodoItem = ({ todo, handleUpdateTodoStatus, handleTodoRemove }) => {
   
@@ -56,6 +60,7 @@ const styles = StyleSheet.create({
     borderWidth: 1
   },
   taskContainer: {
+    fontFamily: 'BalsamiqSans_400Regular',
     fontSize: 18,
     width: 220
   },
