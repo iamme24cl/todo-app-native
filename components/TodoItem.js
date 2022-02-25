@@ -6,23 +6,22 @@ const TodoItem = (props) => {
   const { todo, handleUpdateTodoStatus, handleTodoRemove } = props;
 
   const show = false;
-  console.log(todos)
   
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => alert('clicked')}>
-        {show ? (
+      <TouchableOpacity onPress={() => handleUpdateTodoStatus(todo.id)}>
+        {todo.isCompleted ? (
           <View style={[styles.statusContainer, styles.todoComplete]}>
-            <Text>✓</Text>
+            <Text style={styles.text}>✓</Text>
           </View>) : (
             <View style={[styles.statusContainer, styles.todoInComplete]}></View>
           )}
       </TouchableOpacity>
       <View>
-        <Text style={styles.taskContainer}></Text>
+        <Text style={styles.taskContainer}>{todo.task}</Text>
       </View>
       <View style={styles.closeBtnContainer}>
-        <TouchableOpacity onPress={() => alert('clicked')}>
+        <TouchableOpacity onPress={() => handleTodoRemove(todo.id)}>
           <MaterialIcons name="delete" size={18} color='black' />
         </TouchableOpacity>
       </View>
@@ -41,7 +40,6 @@ const styles = StyleSheet.create({
     borderColor: '#ececec',
     paddingHorizontal: 16,
     paddingVertical: 6,
-    width: 320
   },
   statusContainer: {
     alignItems: 'center',
@@ -49,11 +47,11 @@ const styles = StyleSheet.create({
     width: 30,
     height: 30,
     marginRight: 15,
-    color: '#fff',
   },
   todoComplete: {
     backgroundColor: '#1abc9c',
     borderRadius: 50,
+    color: '#fff',
   },
   todoInComplete: {
     borderRadius: 50,
@@ -67,6 +65,10 @@ const styles = StyleSheet.create({
   closeBtnContainer: {
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 18
   }
 })
 
