@@ -40,7 +40,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>My Todo List</Text>
+      <Text style={styles.text}>{isFetching ? "Loading Todos...." : "My Todo List"}</Text>
       <TodoInput
         task={task}
         setTask={setTask}
